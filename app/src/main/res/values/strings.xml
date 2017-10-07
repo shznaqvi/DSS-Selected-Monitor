@@ -73,7 +73,7 @@
 
   <!-- Strings related to Sections Below -->
 
-  <string name="dca03">3) DSS ID </string>
+  <string name="dca03">3) DSS ID HH</string>
   <string name="dca04">4۔ کیا اجازت مل گئی؟ </string>
   <string name="dca0403"> گھر بند ہے / اجازت دینے والا موجود نہیں ہے۔ </string>
   <string name="dca05">5)  جواب دہندہ کا نام </string>
@@ -380,6 +380,7 @@
   <string name="dcf0202"> مردہ بچے </string>
   <string name="dcf0203"> ضائع حمل </string>
   <string name="dcf03">3) آپکے ابھی کتنے بچے زندہ ہیں؟ </string>
+  <string name="childrenSpinner"> بچے کا نام </string>
   <string name="dcf04">4) تاریخ پیدائش  / سب سے چھوٹے بچے کی عمر </string>
   <string name="dcf04a"> تاریخ پیدائش </string>
   <string name="dcf04b"> عمر </string>
