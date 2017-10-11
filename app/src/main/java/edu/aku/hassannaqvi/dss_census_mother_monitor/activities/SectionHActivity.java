@@ -47,6 +47,8 @@ public class SectionHActivity extends Activity {
     RadioButton dch0803;
     @BindView(R.id.dch0804)
     RadioButton dch0804;
+    @BindView(R.id.fldgrpdch01)
+    LinearLayout fldgrpdch01;
 
 
     @Override
@@ -54,6 +56,18 @@ public class SectionHActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_h);
         ButterKnife.bind(this);
+
+        dch01.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                if (i == R.id.dch0101){
+                    fldgrpdch01.setVisibility(View.GONE);
+                    dch05.setText(null);
+                }else {
+                    fldgrpdch01.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 
@@ -132,13 +146,16 @@ public class SectionHActivity extends Activity {
             dch0102.setError(null);
         }
 
-        if (dch05.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
-            dch05.setError("This data is Required!");
-            Log.i(TAG, "dch05: This data is Required!");
-            return false;
-        } else {
-            dch05.setError(null);
+
+        if (dch0102.isChecked()) {
+            if (dch05.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
+                dch05.setError("This data is Required!");
+                Log.i(TAG, "dch05: This data is Required!");
+                return false;
+            } else {
+                dch05.setError(null);
+            }
         }
 
         // =================== Q 10 ==================
