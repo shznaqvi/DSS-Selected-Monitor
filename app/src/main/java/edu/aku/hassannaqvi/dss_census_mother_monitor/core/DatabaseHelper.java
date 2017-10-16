@@ -41,8 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.ROW_PASSWORD + " TEXT,"
             + singleUser.FULL_NAME + " TEXT,"
             + singleUser.REGION_DSS + " TEXT );";
-    public static final String DATABASE_NAME = "dss-census.db";
-    public static final String DB_NAME = "dss-census_copy.db";
+    public static final String DATABASE_NAME = "dss-census_mother_monitor.db";
+    public static final String DB_NAME = "dss-census_mother_monitor_copy.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
