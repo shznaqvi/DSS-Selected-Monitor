@@ -320,6 +320,6 @@ public class MotherContract {
 
         public static final String COLUMN_DEVICETAGID = "tagid";
 
-        public static String _URL = "mothers.php";
+        public static String _URL = "mothersmonitor.php";
     }
 }
