@@ -7,6 +7,7 @@ package edu.aku.hassannaqvi.dss_census_mother_monitor.sync;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -75,7 +76,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         String line = "No Response";
 
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<FormsContract> Forms = db.getUnsyncedForms();
+        Collection<FormsContract> Forms = null;
         Log.d(TAG, String.valueOf(Forms.size()));
 
         if (Forms.size() > 0) {

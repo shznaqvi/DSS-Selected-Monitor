@@ -768,48 +768,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allMC;
     }
 
-    public Collection<FormsContract> getUnsyncedForms() {
+    public Collection<MotherContract> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable._ID,
-                FormsTable.COLUMN_PROJECT_NAME,
-                FormsTable.COLUMN_UID,
-                FormsContract.FormsTable.COLUMN_IS_NEW,
-                FormsContract.FormsTable.COLUMN_DSSID,
-                FormsTable.COLUMN_FORMDATE,
-                FormsTable.COLUMN_USER,
-                FormsContract.FormsTable.COLUMN_ISTATUS,
-                FormsTable.COLUMN_SA,
-                FormsTable.COLUMN_SD,
-                FormsTable.COLUMN_SE,
-                FormsTable.COLUMN_SF,
-                FormsContract.FormsTable.COLUMN_SG,
-                FormsContract.FormsTable.COLUMN_SH,
-                FormsContract.FormsTable.COLUMN_SI,
-                FormsTable.COLUMN_SJ,
-                FormsTable.COLUMN_SK,
-                FormsContract.FormsTable.COLUMN_SL,
-                FormsContract.FormsTable.COLUMN_SM,
-                FormsContract.FormsTable.COLUMN_GPSLAT,
-                FormsContract.FormsTable.COLUMN_GPSLNG,
-                FormsContract.FormsTable.COLUMN_GPSDATE,
-                FormsContract.FormsTable.COLUMN_GPSACC,
-                FormsTable.COLUMN_DEVICETAGID,
-                FormsTable.COLUMN_DEVICEID
+                MotherTB.COLUMN_ID,
+                MotherTB.COLUMN_PROJECT_NAME,
+                MotherTB.COLUMN_UID,
+                MotherTB.COLUMN_DSSID,
+                MotherTB.COLUMN_CHILDID,
+                MotherTB.COLUMN_MOTHERID,
+                MotherTB.COLUMN_FORMDATE,
+                MotherTB.COLUMN_USER,
+                MotherTB.COLUMN_ISTATUS,
+                MotherTB.COLUMN_SF,
+                MotherTB.COLUMN_SG,
+                MotherTB.COLUMN_SH,
+                MotherTB.COLUMN_SI,
+                MotherTB.COLUMN_SJ,
+                MotherTB.COLUMN_SL,
+                MotherTB.COLUMN_SM,
+                MotherTB.COLUMN_DEVICETAGID,
+                MotherTB.COLUMN_DEVICEID
         };
-        String whereClause = FormsContract.FormsTable.COLUMN_SYNCED + " is null";
+        String whereClause = MotherTB.COLUMN_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                FormsTable.COLUMN_ID + " ASC";
+                MotherTB.COLUMN_ID + " ASC";
 
-        Collection<FormsContract> allFC = new ArrayList<FormsContract>();
+        Collection<MotherContract> allFC = new ArrayList<MotherContract>();
         try {
             c = db.query(
-                    FormsContract.FormsTable.TABLE_NAME,  // The table to query
+                    MotherTB.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -818,7 +811,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                FormsContract fc = new FormsContract();
+                MotherContract fc = new MotherContract();
                 allFC.add(fc.Hydrate(c));
             }
         } finally {
@@ -832,29 +825,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
-    public Collection<FormsContract> getTodayForms() {
+    public Collection<MotherContract> getTodayForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable._ID,
-                FormsTable.COLUMN_DSSID,
-                FormsTable.COLUMN_FORMDATE,
-                FormsTable.COLUMN_ISTATUS,
-                FormsTable.COLUMN_SYNCED,
+                MotherTB.COLUMN_ID,
+                MotherTB.COLUMN_DSSID,
+                MotherTB.COLUMN_FORMDATE,
+                MotherTB.COLUMN_ISTATUS,
+                MotherTB.COLUMN_SYNCED,
 
         };
-        String whereClause = FormsTable.COLUMN_FORMDATE + " Like ? ";
+        String whereClause = MotherTB.COLUMN_FORMDATE + " Like ? ";
         String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                FormsTable.COLUMN_ID + " ASC";
+                MotherTB.COLUMN_ID + " ASC";
 
-        Collection<FormsContract> allFC = new ArrayList<>();
+        Collection<MotherContract> allFC = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    MotherTB.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -863,12 +856,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                FormsContract fc = new FormsContract();
-                fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                fc.setDSSID(c.getString(c.getColumnIndex(FormsTable.COLUMN_DSSID)));
-                fc.setFormDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
-                fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
-                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                MotherContract fc = new MotherContract();
+                fc.set_ID(c.getString(c.getColumnIndex(MotherTB.COLUMN_ID)));
+                fc.setDssID(c.getString(c.getColumnIndex(MotherTB.COLUMN_DSSID)));
+                fc.setFormDate(c.getString(c.getColumnIndex(MotherTB.COLUMN_FORMDATE)));
+                fc.setIstatus(c.getString(c.getColumnIndex(MotherTB.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(MotherTB.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
         } finally {

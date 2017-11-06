@@ -28,6 +28,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import edu.aku.hassannaqvi.dss_census_mother_monitor.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census_mother_monitor.otherClasses.FormsList;
 import edu.aku.hassannaqvi.dss_census_mother_monitor.R;
 import edu.aku.hassannaqvi.dss_census_mother_monitor.contracts.FormsContract;
@@ -115,8 +116,8 @@ public class MainActivity extends Activity {
 
 
         DatabaseHelper db = new DatabaseHelper(this);
-        Collection<FormsContract> todaysForms = db.getTodayForms();
-        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
+        Collection<MotherContract> todaysForms = db.getTodayForms();
+        Collection<MotherContract> unsyncedForms = db.getUnsyncedForms();
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
 
@@ -131,7 +132,7 @@ public class MainActivity extends Activity {
             rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
             rSumText += "--------------------------------------------------\r\n";
 
-            for (FormsContract fc : todaysForms) {
+            for (MotherContract fc : todaysForms) {
                 if (fc.getIstatus() != null) {
                     switch (fc.getIstatus()) {
                         case "1":
@@ -153,7 +154,7 @@ public class MainActivity extends Activity {
                     iStatus = "\tN/A";
                 }
 
-                rSumText += fc.getDSSID();
+                rSumText += fc.getDssID();
 
                 rSumText += " " + iStatus + " ";
 
