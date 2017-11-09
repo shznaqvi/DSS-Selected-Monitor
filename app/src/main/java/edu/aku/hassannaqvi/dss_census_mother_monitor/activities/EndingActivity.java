@@ -29,6 +29,14 @@ public class EndingActivity extends Activity {
     RadioButton dcstatus01;
     @BindView(R.id.dcstatus02)
     RadioButton dcstatus02;
+    @BindView(R.id.dcstatus03)
+    RadioButton dcstatus03;
+    @BindView(R.id.dcstatus04)
+    RadioButton dcstatus04;
+    @BindView(R.id.dcstatus05)
+    RadioButton dcstatus05;
+    @BindView(R.id.dcstatus06)
+    RadioButton dcstatus06;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +49,10 @@ public class EndingActivity extends Activity {
         if (check) {
             dcstatus01.setEnabled(true);
             dcstatus02.setEnabled(false);
+            dcstatus03.setEnabled(false);
+            dcstatus04.setEnabled(false);
+            dcstatus05.setEnabled(false);
+            dcstatus06.setEnabled(false);
 
             MainApp.endFlag = false;
 
@@ -48,6 +60,10 @@ public class EndingActivity extends Activity {
             //fldGrpmn0823Reason.setVisibility(View.GONE);
             dcstatus01.setEnabled(false);
             dcstatus02.setEnabled(true);
+            dcstatus03.setEnabled(true);
+            dcstatus04.setEnabled(true);
+            dcstatus05.setEnabled(true);
+            dcstatus06.setEnabled(true);
 
             MainApp.endFlag = true;
         }
@@ -111,7 +127,9 @@ public class EndingActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        MainApp.mc.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
+        MainApp.mc.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2"
+                : dcstatus03.isChecked() ? "3" : dcstatus04.isChecked() ? "4" : dcstatus05.isChecked() ? "5"
+                : dcstatus06.isChecked() ? "6" : "0");
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -148,11 +166,11 @@ public class EndingActivity extends Activity {
 
         if (dcstatus.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Not Selected): " + getString(R.string.dcstatus), Toast.LENGTH_LONG).show();
-            dcstatus02.setError("Please Select One");    // Set Error on last radio button
+            dcstatus06.setError("Please Select One");    // Set Error on last radio button
             Log.i(TAG, "dcstatus: This data is Required!");
             return false;
         } else {
-            dcstatus02.setError(null);
+            dcstatus06.setError(null);
         }
 
 

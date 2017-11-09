@@ -45,6 +45,30 @@
                     android:layout_height="wrap_content"
                     android:text="@string/incomplete" />
 
+                <RadioButton
+                    android:id="@+id/dcstatus03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/refused" />
+
+                <RadioButton
+                    android:id="@+id/dcstatus04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notavailable" />
+
+                <RadioButton
+                    android:id="@+id/dcstatus05"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/migratedout" />
+
+                <RadioButton
+                    android:id="@+id/dcstatus06"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/imovement" />
+
             </RadioGroup>
 
             <Button
@@ -53,7 +77,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_weight="1"
-                android:onClick="endInterview"
                 android:text="@string/end_interview"
                 android:textColor="#ff1e1e" />
 
