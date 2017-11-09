@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DSS-Census-Mother-MonitorApp.iml" filepath="$PROJECT_DIR$/DSS-Census-Mother-MonitorApp.iml" />
-      <module fileurl="file://C:\Ali Work\Projects\DSS-Census-Mother-MonitorApp\DSS-Selected.iml" filepath="C:\Ali Work\Projects\DSS-Census-Mother-MonitorApp\DSS-Selected.iml" />
+      <module fileurl="file://E:\Hassan\Android\DSS-Selected-Monitor\DSS-Census-Mother-MonitorApp.iml" filepath="E:\Hassan\Android\DSS-Selected-Monitor\DSS-Census-Mother-MonitorApp.iml" />
+      <module fileurl="file://E:\Hassan\Android\DSS-Selected-Monitor\DSS-Selected.iml" filepath="E:\Hassan\Android\DSS-Selected-Monitor\DSS-Selected.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS-Selected-Monitor.iml" filepath="$PROJECT_DIR$/DSS-Selected-Monitor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
